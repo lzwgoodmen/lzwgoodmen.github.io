@@ -149,6 +149,53 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/11/python02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -157,7 +204,8 @@
         <hr>
 <h2 id="title-pyhhon基础"><a href="#title-pyhhon基础" class="headerlink" title="title:pyhhon基础"></a>title:pyhhon基础</h2><p>##编码：<br>  在开发过程，对应不同的语言使用不同的字符编码。<br>  英文    ISO-8859-1<br>  中文    gbk或gb2312<br>  目前Python为了统一编码格式，在3.0以上的版本使用了utf-8编码</p>
 <p>##print()函数：<br>  语法格式：print(value,…,sep=’ ‘,end=’\n’)<br>其中，value代表我们要输出的内容，可以是字符串，可以是数值等内容<br>sep代表输出多个值之间的间隔符，默认使用空格隔开。我们可以重新定义间隔符，比如采用：#、，等<br>end代表输出语句的结束标识，默认使用了换行，我们可以重新定义其他内容，其输出的内容将不再进行换行操作。</p>
-<p>##print()函数的基本使用<br>rint()常用输出方式：<br>print(‘hello ‘)、print(123456)等<br>参数格式输出<br>%s：代表了字符串内容，其中<br>print(‘welcome %s’%Beijing)=&gt;welcome Beijing<br>print(‘welcome %10.3s’%Beijing)=&gt;welcome       Bei,输出结果为10个字符其中包含字符串Beijing中前三个，其余用空格填充<br>%d：代表了整数内容，其中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'price %d'</span>%10)=&gt;price 10</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'price %d'</span>%10.5) =&gt; price 10</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'price %3d'</span>%10000)=&gt; price 10000</span><br></pre></td></tr></table></figure></p>
+<p>##print()函数的基本使用<br>rint()常用输出方式：<br>print(‘hello ‘)、print(123456)等<br>参数格式输出<br>%s：代表了字符串内容，其中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'welcome %s'</span>%Beijing)=&gt;welcome Beijing</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'welcome %10.3s'</span>%Beijing)=&gt;welcome       Bei</span><br></pre></td></tr></table></figure></p>
+<p>输出结果为10个字符其中包含字符串Beijing中前三个，其余用空格填充<br>%d：代表了整数内容，其中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'price %d'</span>%10)=&gt;price 10</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'price %d'</span>%10.5) =&gt; price 10</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'price %3d'</span>%10000)=&gt; price 10000</span><br></pre></td></tr></table></figure></p>
 <p>注意这里面的3d表示输出一个宽度为3个单元的数值，如果数值长度小于三，那么数值靠右对齐。<br>-3d表示，数值反向对齐（靠左对齐）<br>%f：代表了浮点数内容(注意，在Python中浮点数是一个近似值，所以结果也是近似)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'price %f'</span>%10.2)=&gt;10.200000</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'price %.1f'</span>%10.2) =&gt; 10.2</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'prince %.1f'</span>%10.58) = &gt;10.6</span><br></pre></td></tr></table></figure></p>
 <p>当取一位小数位的时候，将小数位第二位进行舍入操作，但是Python的中间值不是5，导致当小数位第二位是5时，直接被舍去<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">'%5.1f'</span>%10.3) =&gt; 10.3</span><br></pre></td></tr></table></figure></p>
 <p>输出一个宽度为5的单位，其中整数3位，小数部分1位，小数点占一位</p>
@@ -210,7 +258,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/09/hello-world/">Hello World</a>
+      <a class="article-title" href="/2018/07/09/hello-world/">学习Python笔记</a>
     </h1>
   
 
@@ -223,16 +271,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <p>Welcome to <a href="https://lzwgoodmen.github.io/" target="_blank" rel="noopener">lzwgoodmen</a>!</p>
+<h2 id="python01是第一部分笔记"><a href="#python01是第一部分笔记" class="headerlink" title="python01是第一部分笔记"></a>python01是第一部分笔记</h2><h2 id="python0是第二部分笔记"><a href="#python0是第二部分笔记" class="headerlink" title="python0是第二部分笔记"></a>python0是第二部分笔记</h2><h2 id="以此类推"><a href="#以此类推" class="headerlink" title="以此类推"></a>以此类推</h2>
       
 
       
