@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="小伟的技术博客">
 <meta property="og:description" content="pyhhon基础 python04运算符算术运算符：+、-、*、/在python中默认的数据类型时浮点型，因此在执行算术运算时5/2=2.5，而不是2.%：两数进行求余运算，如果分子大于分母，得余数；如果分子小于分母，直接得分子。注意：只有分子除尽分母时，结果才返回012//：两数相除取整数，注意，此处得到的整数，为结果的整数部分不进行四舍五入操作。**： A**B 数A连续相乘B次，也可以说数">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-13T06:37:24.029Z">
+<meta property="og:updated_time" content="2018-07-13T06:40:38.027Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小伟的技术博客">
 <meta name="twitter:description" content="pyhhon基础 python04运算符算术运算符：+、-、*、/在python中默认的数据类型时浮点型，因此在执行算术运算时5/2=2.5，而不是2.%：两数进行求余运算，如果分子大于分母，得余数；如果分子小于分母，直接得分子。注意：只有分子除尽分母时，结果才返回012//：两数相除取整数，注意，此处得到的整数，为结果的整数部分不进行四舍五入操作。**： A**B 数A连续相乘B次，也可以说数">
@@ -159,7 +159,8 @@
         <hr>
 <p>pyhhon基础</p>
 <h2 id="python04"><a href="#python04" class="headerlink" title="python04"></a>python04</h2><h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="算术运算符：-、-、-、"><a href="#算术运算符：-、-、-、" class="headerlink" title="算术运算符：+、-、*、/"></a>算术运算符：+、-、*、/</h3><p>在python中默认的数据类型时浮点型，因此在执行算术运算时5/2=2.5，而不是2.<br>%：两数进行求余运算，如果分子大于分母，得余数；如果分子小于分母，直接得分子。注意：只有分子除尽分母时，结果才返回0<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//：两数相除取整数，注意，此处得到的整数，为结果的整数部分不进行四舍五入操作。</span><br><span class="line">**： A**B 数A连续相乘B次，也可以说数A 的B次幂</span><br></pre></td></tr></table></figure></p>
-<p>补充：<br>1、对于数值运算的四舍五入操作<br>math包中的floor()和ceil()函数<br>import math<br>math.floor(3/2) =&gt;1   等同于 3//2    只舍不入<br>math.ceil(3/2) =&gt;2    此处，只要有小数位就进位，不管小数部分是否大于等于5  只入不舍<br>round()函数进行四舍五入操作，round(数值[,保留小数位数])<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">round(1.5)=&gt;2  </span><br><span class="line">round(1.2)=&gt;1</span><br><span class="line">round(1,4,1)=&gt;1.4</span><br></pre></td></tr></table></figure></p>
+<p>补充：<br>1、对于数值运算的四舍五入操作<br>math包中的floor()和ceil()函数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import math</span><br><span class="line">math.floor(3/2) =&gt;1   等同于 3//2    只舍不入</span><br><span class="line">math.ceil(3/2) =&gt;2    此处，只要有小数位就进位，不管小数部分是否大于等于5  只入不舍</span><br></pre></td></tr></table></figure></p>
+<p>round()函数进行四舍五入操作，round(数值[,保留小数位数])<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">round(1.5)=&gt;2  </span><br><span class="line">round(1.2)=&gt;1</span><br><span class="line">round(1,4,1)=&gt;1.4</span><br></pre></td></tr></table></figure></p>
 <p>意味着保留小数点后一位</p>
 <p>2、求幂运算<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pow(2,3) =&gt;8 等同于2 ** 3</span><br></pre></td></tr></table></figure></p>
 <p>3、求绝对值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abs(-10) =&gt; 10</span><br></pre></td></tr></table></figure></p>
