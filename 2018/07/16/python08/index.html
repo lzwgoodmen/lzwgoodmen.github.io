@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="小伟的技术博客">
 <meta property="og:description" content="常用数据类型的转换字符串转为整型：int(str)函数格式：int(str)返回值：将字符型数值转为整数1int(&apos;3&apos;) =&amp;gt; 3 字符串转为浮点型:float(str)函数格式：float(str)返回值：将字符型浮点数转为浮点数1float(&apos;2.4&apos;) =&amp;gt; 2.4 [注意：]将字符串转换成整型、浮点型的前提是该字符串本身是数字数值转为字符串：str(int)、str(floa">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-16T10:50:32.910Z">
+<meta property="og:updated_time" content="2018-07-18T00:27:37.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python基础（阶段性知识点)">
 <meta name="twitter:description" content="常用数据类型的转换字符串转为整型：int(str)函数格式：int(str)返回值：将字符型数值转为整数1int(&apos;3&apos;) =&amp;gt; 3 字符串转为浮点型:float(str)函数格式：float(str)返回值：将字符型浮点数转为浮点数1float(&apos;2.4&apos;) =&amp;gt; 2.4 [注意：]将字符串转换成整型、浮点型的前提是该字符串本身是数字数值转为字符串：str(int)、str(floa">
@@ -181,6 +181,8 @@
 <p>字符串转为列表：list(str)<br>函数格式：list(str)<br>返回值：将指定的字符串，按照元素顺序逐一转为列表<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string1 = <span class="string">'hello world'</span></span><br><span class="line">list1 = list(string1)</span><br><span class="line">[<span class="string">'h'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">' '</span>, <span class="string">'w'</span>, <span class="string">'o'</span>, <span class="string">'r'</span>, <span class="string">'l'</span>, <span class="string">'d'</span>]</span><br></pre></td></tr></table></figure></p>
 <p>拆分字符串：str.split(分隔符)(python03中出现到，此处出现和其他类似功能作比较)<br>函数格式：str.split(分隔符)<br>返回值：将字符串，根据指定的分隔符，转换为列表<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string1 = <span class="string">"我 爱 github"</span></span><br><span class="line">list2 = string1.split(<span class="string">' '</span>)</span><br><span class="line">[<span class="string">'我'</span>, <span class="string">'爱'</span>, <span class="string">'github'</span>]</span><br></pre></td></tr></table></figure></p>
 <p>列表转为字符串：’分隔符’.join(list)<br>函数格式:’分隔符’.join(list)<br>返回值：将指定的列表中的元素，通过分隔符进行连接，转换为字符串<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list2 = [<span class="string">'我'</span>, <span class="string">'肠爱'</span>,<span class="string">'python'</span>]</span><br><span class="line"> <span class="string">' '</span>.join(list2)</span><br><span class="line"><span class="string">'我 爱 python'</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="在python中，我们认为变量如果被赋值后，使用not运算后，会得False。如果一个变量没有被赋值或设为空值，那么进行not运算时，返回True。比如："><a href="#在python中，我们认为变量如果被赋值后，使用not运算后，会得False。如果一个变量没有被赋值或设为空值，那么进行not运算时，返回True。比如：" class="headerlink" title="在python中，我们认为变量如果被赋值后，使用not运算后，会得False。如果一个变量没有被赋值或设为空值，那么进行not运算时，返回True。比如："></a>在python中，我们认为变量如果被赋值后，使用not运算后，会得False。如果一个变量没有被赋值或设为空值，那么进行not运算时，返回True。比如：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = 10</span><br><span class="line">not a =&gt; False</span><br><span class="line">a = None (None代表了空值)</span><br><span class="line">not a =&gt; True</span><br><span class="line">list1 = list() 此时列表没有被赋值，为空列表</span><br><span class="line">not list1 =&gt; True</span><br><span class="line">list1.append(1,2,3)  此时列表进行赋值</span><br><span class="line">not list1 =&gt; False</span><br></pre></td></tr></table></figure>
+<h2 id="讨论：列表的可迭代化"><a href="#讨论：列表的可迭代化" class="headerlink" title="讨论：列表的可迭代化"></a>讨论：列表的可迭代化</h2><p>当生成一个空列表时，因为列表中没有值，所以python并没有相应的内存地址分配给这个列表变量，当该列表添加元素后，python会自动给该列表扩充内存地址，那么地址都是依次连续的在内存中进行排列。</p>
 
       
 
@@ -273,6 +275,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/07/18/python09/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python基础:字典
+        
+      </div>
+    </a>
   
   
     <a href="/2018/07/16/python07/" id="article-nav-older" class="article-nav-link-wrap">
