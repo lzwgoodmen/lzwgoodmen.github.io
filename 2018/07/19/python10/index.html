@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="小伟的技术博客">
 <meta property="og:description" content="集合数据类型 set1、集合的概念：集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。并且集合是不允许有重复元素，如果出现重复元素，除去第一个元素之外，都会被集合所忽略注意：set是无序的，即存储元素到set的顺序与这些元素输出的顺序无关。set仍然是采用哈希算法，对这些元素进行存储的。 2、集合的声明与赋值1231）s">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-19T01:18:23.010Z">
+<meta property="og:updated_time" content="2018-07-19T10:59:59.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python基础:集合">
 <meta name="twitter:description" content="集合数据类型 set1、集合的概念：集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。并且集合是不允许有重复元素，如果出现重复元素，除去第一个元素之外，都会被集合所忽略注意：set是无序的，即存储元素到set的顺序与这些元素输出的顺序无关。set仍然是采用哈希算法，对这些元素进行存储的。 2、集合的声明与赋值1231）s">
@@ -175,7 +175,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="集合数据类型-set"><a href="#集合数据类型-set" class="headerlink" title="集合数据类型 set"></a>集合数据类型 set</h1><h2 id="1、集合的概念：集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。并且集合是不允许有重复元素，如果出现重复元素，除去第一个元素之外，都会被集合所忽略"><a href="#1、集合的概念：集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。并且集合是不允许有重复元素，如果出现重复元素，除去第一个元素之外，都会被集合所忽略" class="headerlink" title="1、集合的概念：集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。并且集合是不允许有重复元素，如果出现重复元素，除去第一个元素之外，都会被集合所忽略"></a>1、集合的概念：集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。并且集合是不允许有重复元素，如果出现重复元素，除去第一个元素之外，都会被集合所忽略</h2><p>注意：set是无序的，即存储元素到set的顺序与这些元素输出的顺序无关。set仍然是采用哈希算法，对这些元素进行存储的。</p>
+        <h1 id="集合数据类型-set"><a href="#集合数据类型-set" class="headerlink" title="集合数据类型 set"></a>集合数据类型 set</h1><h2 id="1、集合的概念："><a href="#1、集合的概念：" class="headerlink" title="1、集合的概念："></a>1、集合的概念：</h2><p>集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。并且集合是不允许有重复元素，如果出现重复元素，除去第一个元素之外，都会被集合所忽略<br>注意：set是无序的，即存储元素到set的顺序与这些元素输出的顺序无关。set仍然是采用哈希算法，对这些元素进行存储的。</p>
 <h2 id="2、集合的声明与赋值"><a href="#2、集合的声明与赋值" class="headerlink" title="2、集合的声明与赋值"></a>2、集合的声明与赋值</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1）set1 = &#123;1,2,3&#125;   生成一个集合</span><br><span class="line">2）set1 = <span class="built_in">set</span>(&#123;1,2,3&#125;)</span><br><span class="line">3)set1 = <span class="built_in">set</span>()  生成一个空集合，请注意集合只能通过<span class="built_in">set</span>()函数来生成空集合，而不是通过set1 = &#123;&#125;,这个表达式会生成一个空字典。</span><br></pre></td></tr></table></figure>
 <h2 id="3、数据类型转换"><a href="#3、数据类型转换" class="headerlink" title="3、数据类型转换"></a>3、数据类型转换</h2><p>字符串转成集合<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string = <span class="string">'hello'</span></span><br><span class="line">set1 = <span class="built_in">set</span>(string)</span><br><span class="line"></span><br><span class="line">&#123;<span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'h'</span>, <span class="string">'e'</span>&#125;</span><br></pre></td></tr></table></figure></p>
 <p>列表转成集合<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list1 = [1,2,3]</span><br><span class="line">set1 = <span class="built_in">set</span>(list1)</span><br><span class="line"></span><br><span class="line">&#123;1, 2, 3&#125;</span><br></pre></td></tr></table></figure></p>
@@ -287,6 +287,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/07/19/python11/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python基础:补充(rang函数、迭代器，生成器、列表推导式)
+        
+      </div>
+    </a>
   
   
     <a href="/2018/07/18/python09/" id="article-nav-older" class="article-nav-link-wrap">
