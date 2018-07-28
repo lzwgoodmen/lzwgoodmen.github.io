@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="小伟的技术博客">
 <meta property="og:description" content="自定义函数1、函数的定义函数的格式：12def 函数名([参数列表]):    执行代码 其中，函数名的命名方式与变量名的要求相同，即只能是数字、字符、下划线三者构成，同时不能由数字开头。另外，函数的参数根据情况，可以有参，也可以无参。同时，参数的个数，可以是1到N个。最后，调用函数时，一定要保证该函数已经被定义。调用的函数名与定义的函数名一致。 2、函数的调用函数在外部调用时，直接写函数名以及函">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-25T13:54:13.163Z">
+<meta property="og:updated_time" content="2018-07-28T08:55:25.857Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python基础:函数">
 <meta name="twitter:description" content="自定义函数1、函数的定义函数的格式：12def 函数名([参数列表]):    执行代码 其中，函数名的命名方式与变量名的要求相同，即只能是数字、字符、下划线三者构成，同时不能由数字开头。另外，函数的参数根据情况，可以有参，也可以无参。同时，参数的个数，可以是1到N个。最后，调用函数时，一定要保证该函数已经被定义。调用的函数名与定义的函数名一致。 2、函数的调用函数在外部调用时，直接写函数名以及函">
@@ -188,6 +188,12 @@
 <p>7）global与nonlocal<br>global用来修饰局部变量时，表示该变量将作为全局变量来使用。即不仅在函数中可以被调用，同时在文件最外部也可以被调用。<br>nonlocal用来修饰嵌套函数内部的变量，对父级作用域（外层函数）中的变量进行引用和修改，那么从该层(包括父级)以下都将调用该变量的值。注意，该关键字只能影响其直接父级函数。<br>使用global关键字修饰的变量之前可以并不存在<br>而使用nonlocal关键字修饰的变量在嵌套作用域中必须已经存在。</p>
 <p>总结：在函数中定义的变量，我们成为局部变量。包括在函数内部定义的变量、作为参数传递进来的变量。局部变量起作用的范围，我们称为局部作用域。因为Python在调用局部变量时，需要给它分配内存地址，我们称为这个地址为局部命名空间。<br>在文件最外层定义的变量，我们成为全局变量，可以在文件中的任意位置进行调用。全局变量起作用的范围，我们称为全局作用域。Python在载入文件时，就需要给全局变量分配内存地址，这个地址我们称为全局命名空间。</p>
 <p>Python运行时处理变量的步骤：<br>1、从Python解释器开始执行之后，就在内存中开辟里一个空间，每当遇到一个变量的时候，就把变量名和值之间对应的关系记录下来，但是当遇到函数定义的时候，解释器只是象征性的将函数名读入内存，表示知道这个函数存在了，至于函数内部的变量和逻辑，解释器根本不关心。<br>2、函数执行时，函数中的变量会储存在新开辟出来的内存中，函数中的变量只能在函数内部使用，并且会随着函数执行完毕，这块内存中的所有内容也会被清空</p>
+<h2 id="5、函数嵌套"><a href="#5、函数嵌套" class="headerlink" title="5、函数嵌套"></a>5、函数嵌套</h2><p>根据Python中，对函数的载入和调用特点。我们可以清楚看到，当Python运行相关文件时，如果遇到函数时，会先将其名字载入到内存中（即为函数名指定一个内存地址）。因此我们在使用函数名时，可以有以下三种情况：</p>
+<h3 id="1）将函数名赋值给变量"><a href="#1）将函数名赋值给变量" class="headerlink" title="1）将函数名赋值给变量"></a>1）将函数名赋值给变量</h3><p>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def f1():</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line"></span><br><span class="line">a = f1</span><br></pre></td></tr></table></figure></p>
+<p>这是变量a中的值就是f1()函数名的内存地址。<br>2）将函数名作为容器的元素<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def f1():</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">ls = [1,2,f1]</span><br></pre></td></tr></table></figure></p>
+<p>注意，此时存入到列表ls中的f1，它的值仍然是该函数名对应的内存地址</p>
+<h3 id="3）将函数名作为另外一个函数的参数，进行传递"><a href="#3）将函数名作为另外一个函数的参数，进行传递" class="headerlink" title="3）将函数名作为另外一个函数的参数，进行传递"></a>3）将函数名作为另外一个函数的参数，进行传递</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def f1():</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line"></span><br><span class="line">def f2(x):</span><br><span class="line">   x()</span><br><span class="line">f2(f1)</span><br></pre></td></tr></table></figure>
+<p>其执行结果为OK，这种方式类似与函数的普通嵌套,代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def f2():</span><br><span class="line">   def f1():</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">'ok'</span>)</span><br><span class="line">   f1()</span><br><span class="line">f2()</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -280,6 +286,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/07/28/python13/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          python基础:函数
+        
+      </div>
+    </a>
   
   
     <a href="/2018/07/19/python11/" id="article-nav-older" class="article-nav-link-wrap">
