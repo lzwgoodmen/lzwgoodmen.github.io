@@ -153,6 +153,239 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python18" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/02/python18/">python基础:异常</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/02/python18/" class="archive-article-date">
+  	<time datetime="2018-08-02T11:15:49.461Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><h3 id="1）概念："><a href="#1）概念：" class="headerlink" title="1）概念："></a>1）概念：</h3><p>指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。</p>
+<h3 id="2）异常的阶段"><a href="#2）异常的阶段" class="headerlink" title="2）异常的阶段"></a>2）异常的阶段</h3><p>第一、产生异常（比如：代码错误、业务逻辑错误）<br>第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性）</p>
+<h3 id="3）常见的异常类"><a href="#3）常见的异常类" class="headerlink" title="3）常见的异常类"></a>3）常见的异常类</h3><p>Exception：Python中所有异常的父类。<br>NameError：访问了一个未声明的变量。<br>keyError:访问一个不存在的字典key<br>IndexError：索引超出序列的范围<br>ValueError：传给函数的参数类型不正确。<br>IOError：文件操作时输入输出错误</p>
+<h3 id="4）异常处理流程"><a href="#4）异常处理流程" class="headerlink" title="4）异常处理流程"></a>4）异常处理流程</h3><p>基本语法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try：</span><br><span class="line">   可能会产生异常的代码</span><br><span class="line">except  对应的异常 as 别名：</span><br><span class="line">   异常处理语句</span><br></pre></td></tr></table></figure></p>
+<p>说明：在try中，放置可能会产生错误的相关代码；except后标明对应的异常类型，一旦try中产生相关异常，except后声明的异常类能够对应捕获，执行相关异常处理语句。如果try外面后续还要其他语句，会继续执行。在产生异常是，出现异常的语句后，如果还有其他语句则不会执行。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">   可能会产生异常的代码</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">   异常处理语句</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   程序代码</span><br></pre></td></tr></table></figure></p>
+<p>说明：在此结构中，如果try中的代码出现异常，则使用except后面声明的异常类进行捕获处理，如果没有异常出现，则执行else内部的代码。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">   可能会产生异常的代码</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">    异常处理语句</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">    异常处理语句</span><br></pre></td></tr></table></figure></p>
+<p>说明：当try中有多行代码可能会出现不同的异常，那么使用多个except与之对应，根据产生异常的顺序来依次捕获处理。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">try：</span><br><span class="line">   可能会出产生异常的代码</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">   异常处理语句</span><br><span class="line">finally：</span><br><span class="line">   代码</span><br></pre></td></tr></table></figure></p>
+<p>说明：当异常捕获处理流程中，使用了finally来控制，表明不管是否出现异常进行捕获，最后代码都将允许finally内部的语句。<br>注意：finally中的语句，不管前面的代码出现何种操作，比如：break、return、exit等都会执行完finally内部的代码后，才会实现。</p>
+<h3 id="5）异常的分类"><a href="#5）异常的分类" class="headerlink" title="5）异常的分类"></a>5）异常的分类</h3><p>在Python中所有的异常都继承自BaseExcept,如下：<br>             |——&gt;KeyboardInterrupt（键盘中断异常）<br>             |<br>BaseException|——&gt;SystemExit(系统退出异常)<br>             |<br>             |——&gt;Exception（其他所有异常的父类）<br>其中：keyboardInterrupt在使用强制中断程序时产生。<br>SystemExit在使用sys.exit()函数时产生。</p>
+<h3 id="6）主动抛出异常"><a href="#6）主动抛出异常" class="headerlink" title="6）主动抛出异常"></a>6）主动抛出异常</h3><p>raise 异常类对象实例或自定义异常类实例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raise IOError(<span class="string">'IO 错误'</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="7）finally的替换写法"><a href="#7）finally的替换写法" class="headerlink" title="7）finally的替换写法"></a>7）finally的替换写法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">with open(<span class="string">'myfile.txt'</span>,<span class="string">'r'</span>) as f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        <span class="built_in">print</span>(line)</span><br></pre></td></tr></table></figure>
+<p>其中打开的文件对象f，在执行完内容的读取后，被强制性关闭。及时在读取过程中，出现错误，也会被关闭。<br>8）使用异常机制的优势<br>第一，把错误控制与业务逻辑进行区分，增强程序的可读性和健壮性。<br>第二，代码结构更加清晰，复杂的业务流程的实现更加便利<br>第三，程序的容错性更强，不会因为一个小bug导致整体崩溃。</p>
+<h3 id="9）assert-断言"><a href="#9）assert-断言" class="headerlink" title="9）assert 断言"></a>9）assert 断言</h3><p>语法格式：assert 表达式，断言内容。代码如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    assert 1==2,<span class="string">'1 不等于 2'</span></span><br><span class="line">except AssertionError as ae:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'&#123;&#125;&#123;&#125;'</span>.format(ae.__class__.__name__, ae))</span><br></pre></td></tr></table></figure></p>
+<p>如果断言表达式为真，则正常执行，如果不为真，则返回断言内容，作为异常捕获的输出结果。</p>
+<p>收集约束条件<br>assert语句通常是用于验证开发期间程序状况的。显示时，其出错消息正文会自动包括源代码的行消息，以及列在assert语句中的值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ef f(x):</span><br><span class="line">assert x &lt; 0, <span class="string">'x must be negative'</span></span><br><span class="line"><span class="built_in">return</span> x **2</span><br><span class="line">$ python </span><br><span class="line">&gt;&gt;&gt; import asserter</span><br><span class="line">&gt;&gt;&gt; asserter.f(1)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">File <span class="string">"&lt;stdin&gt;"</span>, line 1, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">File <span class="string">"asserter.py"</span>,line 2, <span class="keyword">in</span> f</span><br><span class="line">		assert x &lt; 0, <span class="string">'x must be negative'</span></span><br><span class="line">AssertionError: x must be negative</span><br></pre></td></tr></table></figure></p>
+<h3 id="with…as语句"><a href="#with…as语句" class="headerlink" title="with…as语句"></a>with…as语句</h3><p>基本使用<br>with…as语句的目的在于从流程图中把try、except、finally关键字和资源分配释放相关代码全部去掉，而不是像try…except…finally那样仅仅简化代码使之易于使用。with语句的语法如下。</p>
+<p>with context_expr [as var]:<br>    with-block</p>
+<p>在这里context_expr要返回一个对象。如果选用的as子句存在，此对象也返回一个值，赋值给变量名var。<br>with…as语句示例<br>假设在D盘根目录下有一个test.txt文件，该文件里面的内容如下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">How are you?</span><br><span class="line">Fine, thank you.</span><br></pre></td></tr></table></figure></p>
+<p>执行以下程序段，观察运行结果，体会with语句的作用。程序代码如下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Exp9_6.py</span><br><span class="line">with open(<span class="string">'d:\\test.txt'</span>) as f:</span><br><span class="line">	<span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">		<span class="built_in">print</span>(line)</span><br></pre></td></tr></table></figure></p>
+<p>程序运行结果如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">How are you?</span><br><span class="line">Fine, thank you.</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/02/python18/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python17" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/02/python17/">python基础:包与模块</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/02/python17/" class="archive-article-date">
+  	<time datetime="2018-08-02T11:11:55.644Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h3 id="1）模块"><a href="#1）模块" class="headerlink" title="1）模块"></a>1）模块</h3><p>基本概念：在Python中进行Python定义和声明的文件，以.py结尾。使用import或from   import导入的文件，我们成为模块。</p>
+<h3 id="2）模块的优势"><a href="#2）模块的优势" class="headerlink" title="2）模块的优势"></a>2）模块的优势</h3><p>首先，使用模块，可以将常用的功能和变量，统一分类存储在不同的文件中，在使用时进行导入。提供了代码的可维护性。<br>其次，使用模块因为将常用功能进行了统一调用，提供了代码的复用性<br>最后，解决了在同一个文件中，方法和变量重名的问题。</p>
+<h3 id="3）导入时的问题"><a href="#3）导入时的问题" class="headerlink" title="3）导入时的问题"></a>3）导入时的问题</h3><p>如果导入了与文件同名的函数（方法名相同，函数个数相同）时，需要使用模块名调用函数，与文件中的函数进行区分，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import my</span><br><span class="line">my.show()</span><br><span class="line">def show():</span><br><span class="line">  pass</span><br><span class="line">show()</span><br></pre></td></tr></table></figure></p>
+<h3 id="4"><a href="#4" class="headerlink" title="4)"></a>4)</h3><p>模块可以在Python文件中，实现多次import导入，但是只有第一次导入时才真正将模块中的内容运行、方法载入，其他再进行导入时，Python解析器会先检测是否已经载入该模块，如果载入就不在执行相关操作。<br>总结：<br>模块载入一共分三个步骤：<br>1、为模块的导入，创建命名空间（划分新的内存地址），被载入的文件按照全局作用域来使用。<br>2、模块载入后，将在上一步操作中创建的命名空间中，执行模块中的代码<br>3、创建一个模块的名字，来引用模块所在的命名空间。my.show()</p>
+<p>5)当使用from  import引入多个模块时，同时多个模块存在同名函数，那么在程序中调用该函数时，以程序导入的最后一个模块的函数为准。</p>
+<h2 id="包："><a href="#包：" class="headerlink" title="包："></a>包：</h2><h3 id="1）概念："><a href="#1）概念：" class="headerlink" title="1）概念："></a>1）概念：</h3><h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><p>包在Python中定义为可以包含多个模块文件的目录，其中必须要包含一个名为“<strong>init</strong>.py”的文件，用来初始化包。<br>2）包在调用的使用，首先会初始化<strong>init</strong>.py文件，主要功能为包中模块运行时提供所需要的相关数据，比如：数据库用户名称、密码、地址等内容。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/02/python17/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python16" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/02/python16/">python基础:二进制文件、Excel表、xml文件的输入输出</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/02/python16/" class="archive-article-date">
+  	<time datetime="2018-08-02T11:05:09.962Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="二进制文件的输入输出"><a href="#二进制文件的输入输出" class="headerlink" title="二进制文件的输入输出"></a>二进制文件的输入输出</h2><h3 id="1）、struct和pickle"><a href="#1）、struct和pickle" class="headerlink" title="1）、struct和pickle"></a>1）、struct和pickle</h3><p>使用struct模块，进行数据的输入输出<br>使用步骤：<br>第一，对要写入到文件中的各种类型数据，进行统一打包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">struct.pack(<span class="string">'if'</span>,10,12.4),其中，i:代表了整数，f：代表了浮点数</span><br><span class="line">？：代表布尔型</span><br></pre></td></tr></table></figure></p>
+<p>第二，使用write()写入，写入后以二进制的方式进行文件存储。<br>第三，读取时，首先采用struct.unpack()来解包里面包含的相关数据，返回一个序列，即写入时的顺序，与读取时的顺序应该一致。<br>注意：需要将所有写入的数据，一次性都封装到一个bytes中，因为在Python中没有byte的概念，所以需要第三方的模块进行封装。<br>使用pickel模块，进行数据的输入输出<br>使用步骤：<br>第一，对要写入文件中的数据，进行逐一的写入。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'myfile.dat'</span>,<span class="string">'wb'</span>)</span><br><span class="line">pickle.dump(10, f)</span><br></pre></td></tr></table></figure></p>
+<p>第二，读取数据时，同理，需要逐一的读取。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pickle.load(f)</span><br></pre></td></tr></table></figure></p>
+<p>注意，在使用时，我们能够观察到该模块的dump和load函数，与前面所学的json模块的函数一致，在Python中json与pickle都能够实现序列化和反序列化的两个模块。<br>在实际的使用中，推荐使用pickle 模块。</p>
+<h3 id="2）文件定位"><a href="#2）文件定位" class="headerlink" title="2）文件定位"></a>2）文件定位</h3><p>函数格式：seek(n)<br>返回值：返回指定的位置<br>说明：通过指定元素的位置，将文件指针移动到该位置。<br>seek()函数有三个固定值，分别为：0,1,2<br>0：文件的开头<br>1：文件当前的位置<br>2：文件的结尾位置<br>seek(0,2):代表着将指针定位到文件尾，然后进行添加操作<br>seek(0,1):代表着在当前指针的位置，进行替换</p>
+<p>补充：对文件的读取时，如果文件大小未知，切忌不要使用read(),readline()，readlines()将文件内容一次性读取到内存中。因为有可能文件内容过多，造成读取时的IO阻塞。建议，将文件分多次分批读入内存中。我们通常可以先获取到文件大小，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">size = path.getsize(<span class="string">'myfile.txt'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>根据其大小来判断我们采用何种方式进行读取数据内容。</p>
+<h2 id="Python对Excel文件的操作"><a href="#Python对Excel文件的操作" class="headerlink" title="Python对Excel文件的操作"></a>Python对Excel文件的操作</h2><h3 id="1、需要三个主要的模块"><a href="#1、需要三个主要的模块" class="headerlink" title="1、需要三个主要的模块"></a>1、需要三个主要的模块</h3><p>xlrd:用来读取Excel文件中的内容<br>xlwt：用来生成Excel文件<br>xlutils：用来实现Excel文件的复制</p>
+<h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><p>首先：xlrd<br>open_workbook()<br>函数格式：open_workbook(文件名)<br>返回值：返回Excel对象<br>说明：打开指定的Excel文件，生成一个Excel对象用来实现读取行、列及单元格内容</p>
+<p>函数格式：sheet_by_name(sheet页面名)/sheet_by_index(sheet页索引位，默认从0开始)<br>返回值：sheet页对象<br>说明：找到指定的sheet页，生成一个对应的sheet页对象，对其内部的数据进行检索</p>
+<p>函数格式：sheet.cell(rownum,colnum)<br>返回值：返回指定行列的单元格对象，如果要获取其中的内容，调用value属性。<br>说明：通过指定行、列，能够确认一个单元格。<br>其次：xlwt<br>函数名称：Workbook()<br>返回值：返回一个新创建的Excel空对象<br>说明：该函数用来生成一个Excel对象，但是该对象没有任何内容</p>
+<p>函数名称：add_sheet(sheet名字)<br>返回值：返回一个新创建的sheet页对象<br>说明：该函数用来新增一个空的sheet页对象</p>
+<p>函数名称：write(row, col, value)<br>返回值：无<br>说明：对指定的行列单元格内，写入value内容。</p>
+<p>最后：xlutils<br>函数格式：copy(Excel对象)<br>返回值：返回一个指定对象的副本<br>说明：在Python中对Excel的修改，都是生成一个对应的副本，修改后保存。</p>
+<p>函数格式：get_sheet(索引位)<br>返回值：返回一个指定对象副本中的sheet页<br>说明：我们实际修改的数据，都是位于sheet页中。因此要获取到指定的sheet页。</p>
+<h2 id="Python对XML文件的解析"><a href="#Python对XML文件的解析" class="headerlink" title="Python对XML文件的解析"></a>Python对XML文件的解析</h2><h3 id="1、XML解析的两种方式：DOM与SAX"><a href="#1、XML解析的两种方式：DOM与SAX" class="headerlink" title="1、XML解析的两种方式：DOM与SAX"></a>1、XML解析的两种方式：DOM与SAX</h3><p>DOM：文档对象模型，是Python处理XML文件的标准模式。一个DOM的解析器在解析XML文档时 ，一次性读入整个文档，把文档中的所有元素（标签和文本）保存在内存中的一个树形结构，然后我们可以利用DOM提供的各种函数，来读取或修改文档中的内容。<br>SAX：是一种时间驱动的API，利用SAX解析XML 。主要使用解析器负责读取XML文档，并向事件处理器发生事件，比如：元素开始、元素结束。常用在1）大型文档的处理，2）只需要文件的部分内容，或者从文件中得到特定的部分3）建立自己的对象模型。<br>dom与sax对比：<br>1、DOM解析需要读取整个文档到内存中，并且将所有元素保存到树形结构。那也就意味着，可以根据树形结构导航到任意节点，获取其相关内容。<br>2、SAX解析文档，将文档边读入，边解析的方式，不需要一次性读入全部文档内容，只需要读入一部分即可。同时，因为其边读入边解析的工作方式，能够适应大文件的解析，提高解析效率。</p>
+<h3 id="SAX解析文件步骤："><a href="#SAX解析文件步骤：" class="headerlink" title="SAX解析文件步骤："></a>SAX解析文件步骤：</h3><p>1、创建解析器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parser = sax.make_parser()</span><br></pre></td></tr></table></figure></p>
+<p>2、读取xml文档<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xml.sax.parse(xmlfile)</span><br></pre></td></tr></table></figure></p>
+<p>3、设置ContentHandler对象，重写startDocument、endDocument、startElement、endElement方法</p>
+<p>startDocument():文档载入时调用，文档开始<br>endDocument()：当解析器达到文档结尾时调用</p>
+<p>startElement(name,attrs):当遇到XML标签时调用，name是标签的名字，attrs标签的属性字典<br>endElement(name):当遇到XML标签结束时调用，name是标签名<br>4、使用SAX解析文件，需要为解析器配置ContentHandler，定义了如何解析标签，以及处理标签间文本内容的业务逻辑。<br>carhandler = CarHandler()<br>parser.setContentHandler(carhandler)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/02/python16/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -237,7 +470,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/28/python14/">python基础:函数</a>
+      <a class="article-title" href="/2018/07/28/python14/">python基础:文件的输入输出</a>
     </h1>
   
 
@@ -683,230 +916,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/18/python09/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/16/python08/">python基础（阶段性知识点)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/16/python08/" class="archive-article-date">
-  	<time datetime="2018-07-16T10:48:49.371Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="常用数据类型的转换"><a href="#常用数据类型的转换" class="headerlink" title="常用数据类型的转换"></a>常用数据类型的转换</h2><p>字符串转为整型：int(str)<br>函数格式：int(str)<br>返回值：将字符型数值转为整数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int(<span class="string">'3'</span>) =&gt; 3</span><br></pre></td></tr></table></figure></p>
-<p>字符串转为浮点型:float(str)<br>函数格式：float(str)<br>返回值：将字符型浮点数转为浮点数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span>(<span class="string">'2.4'</span>) =&gt; 2.4</span><br></pre></td></tr></table></figure></p>
-<p>[注意：]将字符串转换成整型、浮点型的前提是该字符串本身是数字<br>数值转为字符串：str(int)、str(float)<br>函数格式：str(int)、str(float)<br>返回值：将整数或浮点数，转为字符型数值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str(2) =&gt; <span class="string">'2 '</span>    str(2.4) =&gt; <span class="string">'2.4'</span></span><br></pre></td></tr></table></figure></p>
-<p>字符串转为列表：list(str)<br>函数格式：list(str)<br>返回值：将指定的字符串，按照元素顺序逐一转为列表<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string1 = <span class="string">'hello world'</span></span><br><span class="line">list1 = list(string1)</span><br><span class="line">[<span class="string">'h'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">' '</span>, <span class="string">'w'</span>, <span class="string">'o'</span>, <span class="string">'r'</span>, <span class="string">'l'</span>, <span class="string">'d'</span>]</span><br></pre></td></tr></table></figure></p>
-<p>拆分字符串：str.split(分隔符)(python03中出现到，此处出现和其他类似功能作比较)<br>函数格式：str.split(分隔符)<br>返回值：将字符串，根据指定的分隔符，转换为列表<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string1 = <span class="string">"我 爱 github"</span></span><br><span class="line">list2 = string1.split(<span class="string">' '</span>)</span><br><span class="line">[<span class="string">'我'</span>, <span class="string">'爱'</span>, <span class="string">'github'</span>]</span><br></pre></td></tr></table></figure></p>
-<p>列表转为字符串：’分隔符’.join(list)<br>函数格式:’分隔符’.join(list)<br>返回值：将指定的列表中的元素，通过分隔符进行连接，转换为字符串<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list2 = [<span class="string">'我'</span>, <span class="string">'肠爱'</span>,<span class="string">'python'</span>]</span><br><span class="line"> <span class="string">' '</span>.join(list2)</span><br><span class="line"><span class="string">'我 爱 python'</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="在python中，我们认为变量如果被赋值后，使用not运算后，会得False。如果一个变量没有被赋值或设为空值，那么进行not运算时，返回True。比如："><a href="#在python中，我们认为变量如果被赋值后，使用not运算后，会得False。如果一个变量没有被赋值或设为空值，那么进行not运算时，返回True。比如：" class="headerlink" title="在python中，我们认为变量如果被赋值后，使用not运算后，会得False。如果一个变量没有被赋值或设为空值，那么进行not运算时，返回True。比如："></a>在python中，我们认为变量如果被赋值后，使用not运算后，会得False。如果一个变量没有被赋值或设为空值，那么进行not运算时，返回True。比如：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = 10</span><br><span class="line">not a =&gt; False</span><br><span class="line">a = None (None代表了空值)</span><br><span class="line">not a =&gt; True</span><br><span class="line">list1 = list() 此时列表没有被赋值，为空列表</span><br><span class="line">not list1 =&gt; True</span><br><span class="line">list1.append(1,2,3)  此时列表进行赋值</span><br><span class="line">not list1 =&gt; False</span><br></pre></td></tr></table></figure>
-<h2 id="讨论：列表的可迭代化"><a href="#讨论：列表的可迭代化" class="headerlink" title="讨论：列表的可迭代化"></a>讨论：列表的可迭代化</h2><p>当生成一个空列表时，因为列表中没有值，所以python并没有相应的内存地址分配给这个列表变量，当该列表添加元素后，python会自动给该列表扩充内存地址，那么地址都是依次连续的在内存中进行排列。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/16/python08/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/16/python07/">python基础（组合数据类型：元组)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/16/python07/" class="archive-article-date">
-  	<time datetime="2018-07-16T10:36:38.170Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="组合数据类型"><a href="#组合数据类型" class="headerlink" title="组合数据类型"></a>组合数据类型</h1><h2 id="Tuple元组"><a href="#Tuple元组" class="headerlink" title="Tuple元组"></a>Tuple元组</h2><p>1、元组的概念：元组是值的有序序列，里面可以存储各种数据类型的元素。但是元组一旦被赋值后，其内容就不可被改变。<br>2、声明与赋值<br>第一种，tup = ‘a’,’b’,’c’,’d’<br>第二种，tup = (‘a’,’b’,’c’,’d’) 推荐使用该种声明方式。<br>第三种，tup = tuple() 声明一个空的元组对象<br>[注意：]元组在赋值时，且元素只有一个时，具体情况如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tuple1 = (1,)或tuple1 = 1,一定要在元素后面加上一个,号，与普通变量赋值进行区分。</span><br></pre></td></tr></table></figure></p>
-<p>3、常用操作<br>+、*、in、遍历等等，参考列表。<br>4、元组与列表转换<br>元组转为列表：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tuple1 = (1,2,3)</span><br><span class="line">list1 = list(tuple1)</span><br></pre></td></tr></table></figure></p>
-<p>列表转为元组:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list1 = [1,2,3]</span><br><span class="line">tuple1 = tuple(list1)</span><br></pre></td></tr></table></figure></p>
-<h3 id="元组与列表的区别："><a href="#元组与列表的区别：" class="headerlink" title="元组与列表的区别："></a>元组与列表的区别：</h3><p>1）元组基本上都是不可改变的列表。<br>2）元组几乎具有列表所有的特性，同时没有函数和方法可以改变元组。<br>3）不可变的tuple有什么意义？因为tuple不可变，所以代码更安全。<br>4）如果可能，能用tuple代替list就尽量用tuple。<br>5）当后续介绍字典类型时，会发现字典的键必须是不可变的，因此元组可以用作字典的键，但列表不能。</p>
-<h3 id="元组的常规操作："><a href="#元组的常规操作：" class="headerlink" title="元组的常规操作："></a>元组的常规操作：</h3><p>1）由于元组和列表比较相似，使得对列表的很多操作如“+”、“*”等运算符以及长度（len）、最大（max）、最小（min）等运算都适用于元组。<br>2）然而，当元组中存在列表元素项时，就可以使用如append等方法修改list中的元素，达到间接修改元组元素的目的。</p>
-<h3 id="元组的常用函数"><a href="#元组的常用函数" class="headerlink" title="元组的常用函数:"></a>元组的常用函数:</h3><p>语法描述:<br>cmp(tuple1, tuple2)    比较两个元组元素<br>len(tuple)    计算元组元素个数<br>max(tuple)    返回元组中元素最大值<br>min(tuple)    返回元组中元素最小值<br>tuple(seq)    将列表转换为元组</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/16/python07/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python06" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/14/python06/">python基础（组合数据类型：列表)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/14/python06/" class="archive-article-date">
-  	<time datetime="2018-07-14T09:43:01.232Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="组合数据类型"><a href="#组合数据类型" class="headerlink" title="组合数据类型"></a>组合数据类型</h1><h2 id="1）List列表"><a href="#1）List列表" class="headerlink" title="1）List列表"></a>1）List列表</h2><h3 id="一、概念："><a href="#一、概念：" class="headerlink" title="一、概念："></a>一、概念：</h3><p>List数据，首先它可以存储各种数据类型，比如：数值、字符串、布尔型等等(一个列表中可以存储多个数据类型的数据)；其次，列表中的元素可以随时进行删除、修改、增加，其长度随之变化；同时，列表也是有序的，我们同样可以使用循环对其进行遍历。</p>
-<h3 id="二、声明与赋值"><a href="#二、声明与赋值" class="headerlink" title="二、声明与赋值"></a>二、声明与赋值</h3><p>1、声明列表同时进行赋值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [1,2,3,4,5]</span><br><span class="line">list2 = [<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>]</span><br><span class="line">list3 = [1,<span class="string">'two'</span>,3,<span class="string">'four'</span>]</span><br></pre></td></tr></table></figure></p>
-<p>我们通过观察，可以发现列表是有序的。那么通过for  in  方式可以对其进行快速遍历<br>比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> list1:</span><br><span class="line">    <span class="built_in">print</span>(item,end=<span class="string">' '</span>)</span><br><span class="line">1 2 3 4 5</span><br></pre></td></tr></table></figure></p>
-<p>2、声明一个空列表，后续进行添加元素<br>list1 = list()   此时，python会生成一个空列表,即：[]<br>注意，生成的这个空列表中没有任何值，它的长度为0</p>
-<h3 id="3、列表的操作"><a href="#3、列表的操作" class="headerlink" title="3、列表的操作"></a>3、列表的操作</h3><p>1）增加元素<br>第一种，使用append()函数，在列表的尾部追加一个新元素。<br>函数格式：list.append(元素)<br>返回值：列表长度+1(列表+添加元素)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list1.append(6)</span><br><span class="line">[1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure></p>
-<p>注意，该方法添加元素都是在列表的尾部。<br>第二种，使用extend()函数，在列表尾部，追加一个子列表内容<br>函数格式：list.extend(子列表)<br>返回值：列表长度+n(列表+子列表)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sublist = [7,8,9]</span><br><span class="line">list1.extend(sublist)</span><br><span class="line">[1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br></pre></td></tr></table></figure></p>
-<p>第三种，使用“+”运算符，连接两个列表，其结果会生成一个新的列表。同时原来两个列表不变。<br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sublist</span><br><span class="line">[7, 8, 9]</span><br><span class="line">&gt;&gt;&gt; list3</span><br><span class="line">[1, 2, 3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; list3+sublist</span><br><span class="line">[1, 2, 3, 4, 5, 7, 8, 9]</span><br><span class="line">&gt;&gt;&gt; list3</span><br><span class="line">[1, 2, 3, 4, 5]</span><br><span class="line">&gt;&gt;&gt; sublist</span><br><span class="line">[7, 8, 9]</span><br></pre></td></tr></table></figure></p>
-<p>第四种，使用insert()函数，对列表指定位置进行插入操作。<br>函数格式：list.insert(idx，元素),其中：idx代表要插入的索引位<br>返回值：列表长度+1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list1.insert(4,<span class="string">'four'</span>)</span><br><span class="line">[1, 2, 3, 4, <span class="string">'four'</span>, 5, 6, 7, 8, 9]</span><br></pre></td></tr></table></figure></p>
-<p>注意：插入指定的索引位后，原索引位所在的元素及以后的元素下标+1<br>我们在实际使用的时候，通常会利用append或extend来实现元素的追加，而少用insert进行元素的插入。因为在频繁的插入操作，需要耗费大量的内存来维护列表的索引关系。<br>2）修改元素<br>通过索引位，找到指定的列表元素，重新对其进行赋值即可完成修改操作。<br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1=&gt;[1, 2, 3]</span><br><span class="line">list1[2] = 5</span><br><span class="line">[1, 2, 5]</span><br></pre></td></tr></table></figure></p>
-<p>3)删除元素<br>第一种，remove()移除在列表中指定的元素<br>函数格式：list.remove(元素)<br>返回值：移除元素后的列表，长度-1<br>第二种，pop()有两种使用模式<br>list.pop()：默认模式，从列表的尾部弹出一个元素<br>返回值：返回所弹出的元素本身。如果列表已经为空，执行pop()程序会报错提示：列表为空。<br>list.pop(idx):idx指定的下表索引位置。<br>此处pop()与remove()类似，但是区别在于pop()会将移除的元素返回。<br>第三种，使用del删除指定的列表片段或列表本身<br>del list[idx]        删除指定索引位对应的元素<br>del list             删除整个列表，同时释放该列表所占用的内存空间<br>del list[star:end]   删除指定的列表片段</p>
-<h3 id="4、列表相关知识点"><a href="#4、列表相关知识点" class="headerlink" title="4、列表相关知识点"></a>4、列表相关知识点</h3><p>del与clear()的区别<br>del list VS list.clear()<br>1、del 可以将列表的内容进行删除，同时将列表所占内存进行释放。<br>2、clear()只是将列表中的内容进行清空，原列表内容为空。</p>
-<p>+与*运算符<br>在列表中我们使用+运算符，可以将两个列表进行连接，生成一个新的列表。<br>比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [1,2,3] </span><br><span class="line">list2 = [4,5,6]</span><br><span class="line">list1+list2=&gt;[1,2,3,4,5,6]</span><br></pre></td></tr></table></figure></p>
-<p>使用*运算符，可以将目标列表的内容重复N次，并生成一个新的列表。<br>比如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list1 = [1,2,3] </span><br><span class="line">list1*2=&gt;[1,2,3,1,2,3]</span><br></pre></td></tr></table></figure></p>
-<p>max()与min()<br>函数格式：max(list)、min(list)<br>返回值：返回该列表中最大值或最小值。<br>注意：该函数在使用时，必须要求所统计的列表中元素的数据类型要一致。不支持多数据类型，数值型根据数值本身大小取值，字符串类型根据字母的ASCII码值取值，布尔值根据对应的1、0取值。</p>
-<p>sum()<br>函数格式：sum(list)<br>返回值：将列表中所用的数值进行求和运算，返回结果。注意，该函数只能用于数值型列表。</p>
-<p>sort()排序<br>函数格式：list.sort()、list.sort(reverse=True)<br>返回值：默认情况下，将原列表中元素按照升序进行排序,<br>如果设置了反转参数(reverse)为True，那么将原列表中的元素按照降序排列</p>
-<p>sorted()排序<br>函数格式：sorted(list)、sorted(list,reverse=True)<br>返回值：默认情况下，将原列表中元素按照升序进行排序,<br>如果设置了反转参数为True，那么将原列表中的元素按照降序排列<br>注意：上面两种排序函数，其中第一个属于列表自身的排序方法，而第二种属于python内置的排序方法，也就是说第二种可以应用在包括列表在内多种集合排序。</p>
-<p>count()计数函数<br>函数格式：list.count(元素)<br>返回值：返回指定元素在列表中出现的次数</p>
-<p>in 关键字<br>判断指定的元素是否在列表中存在，如果存在返回True，否在返回False</p>
-<p>index()检索函数<br>函数格式：list.index(元素)<br>返回值：返回该元素在列表中的索引位置，如果不存在报错。</p>
-<p>列表比较运算符操作<br>相当于列表使用普通的比较运算符<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import operator</span><br><span class="line">operator.ge()       大于等于     &gt;=</span><br><span class="line">operator.gt()       大于         &gt;</span><br><span class="line">operator.eq()       等于         ==</span><br><span class="line">operator.ne()       不等于       !=</span><br><span class="line">operator.le()       小于等于     &lt;=</span><br><span class="line">operator.lt()       小于         &lt;</span><br></pre></td></tr></table></figure></p>
-<p>格式：operator.ge(列表1,列表2)<br>返回值：如果符合条件，返回True，反之，返回False</p>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>list1 = [80,100,67,1,34,10]</p>
-<p>for m in range(len(list1)):<br>    for n in range(m+1,len(list1)):<br>        first = list1[m]<br>        second = list1[n]<br>        if first &lt; second:<br>            list1[m] = list1[n]<br>            list1[n] = first<br>print(list1)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/14/python06/">展开全文 >></a>
         </p>
       
 

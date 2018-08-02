@@ -6,20 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>python基础:函数 | 小伟的技术博客</title>
+  <title>Archives: 2018/8 | 小伟的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="6、闭包1）闭包格式12345678def outer():    print(&apos;我是外部函数&apos;)    def inner():        print(&apos;我是闭包函数&apos;)    return innerf = outer()f() 通过对例子的观察，我们发现闭包函数的写法有如下特点：1、闭包函数作为内部函数，嵌套在外部函数中2、闭包函数会作为外部函数的返回值，进行返回。返回闭包函数时，只返回">
-<meta name="keywords" content="Python、爬虫、java">
-<meta property="og:type" content="article">
-<meta property="og:title" content="python基础:函数">
-<meta property="og:url" content="http://yoursite.com/2018/07/28/python13/index.html">
+  <meta name="keywords" content="Python、爬虫、java">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小伟的技术博客">
+<meta property="og:url" content="http://yoursite.com/archives/2018/08/index.html">
 <meta property="og:site_name" content="小伟的技术博客">
-<meta property="og:description" content="6、闭包1）闭包格式12345678def outer():    print(&apos;我是外部函数&apos;)    def inner():        print(&apos;我是闭包函数&apos;)    return innerf = outer()f() 通过对例子的观察，我们发现闭包函数的写法有如下特点：1、闭包函数作为内部函数，嵌套在外部函数中2、闭包函数会作为外部函数的返回值，进行返回。返回闭包函数时，只返回">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-28T09:48:52.770Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python基础:函数">
-<meta name="twitter:description" content="6、闭包1）闭包格式12345678def outer():    print(&apos;我是外部函数&apos;)    def inner():        print(&apos;我是闭包函数&apos;)    return innerf = outer()f() 通过对例子的观察，我们发现闭包函数的写法有如下特点：1、闭包函数作为内部函数，嵌套在外部函数中2、闭包函数会作为外部函数的返回值，进行返回。返回闭包函数时，只返回">
+<meta name="twitter:title" content="小伟的技术博客">
   
     <link rel="alternative" href="/atom.xml" title="小伟的技术博客" type="application/atom+xml">
   
@@ -155,181 +151,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python13" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      python基础:函数
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/08/02/python18/" class="archive-article-date">
+  	<time datetime="2018-08-02T11:15:49.461Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/08/02/python18/">python基础:异常</a>
     </h1>
   
 
-        
-        <a href="/2018/07/28/python13/" class="archive-article-date">
-  	<time datetime="2018-07-28T08:25:57.091Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="6、闭包"><a href="#6、闭包" class="headerlink" title="6、闭包"></a>6、闭包</h2><h3 id="1）闭包格式"><a href="#1）闭包格式" class="headerlink" title="1）闭包格式"></a>1）闭包格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def outer():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'我是外部函数'</span>)</span><br><span class="line">    def inner():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'我是闭包函数'</span>)</span><br><span class="line">    <span class="built_in">return</span> inner</span><br><span class="line"></span><br><span class="line">f = outer()</span><br><span class="line">f()</span><br></pre></td></tr></table></figure>
-<p>通过对例子的观察，我们发现闭包函数的写法有如下特点：<br>1、闭包函数作为内部函数，嵌套在外部函数中<br>2、闭包函数会作为外部函数的返回值，进行返回。返回闭包函数时，只返回函数名，不带括号。<br>3、外部调用时，首先要执行外部函数，然后将结果赋值给一个变量，此时该变量对应了闭包函数。<br>4、我们可以通过<strong>closure</strong>内部函数可以观察到，闭包函数的存在。前提是，闭包函数要与外部函数进行数据传递或调用。<br>总结：闭包使用的数据，必须是本身定义或外部函数中定义的相关变量，通常需要调用外部函数的数据，形成一个封闭的函数结构。不能与外部数据（全局变量）发生交流。</p>
-<h3 id="2）闭包的应用—装饰器"><a href="#2）闭包的应用—装饰器" class="headerlink" title="2）闭包的应用—装饰器"></a>2）闭包的应用—装饰器</h3><p>1、概念：装饰器本身仍然是一个函数。是我们队闭包应用的一种具体实现。<br>2、作用：装饰器可以在不改变函数本身功能的情况下，为函数添加额外的功能。诸如：日志、测试、性能检测等。装饰器同样也是返回一个函数对象。<br>3、用法：<br>使用格式：@+装饰器名称<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def outer(f):</span><br><span class="line">    def inner(*var):</span><br><span class="line">        start_time = time.time()</span><br><span class="line">        f(*var)</span><br><span class="line">        time.sleep(0.3)</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'此函数执行时间为&#123;0&#125;'</span>.format(str(end_time-start_time)))</span><br><span class="line">    <span class="built_in">return</span> inner</span><br><span class="line"></span><br><span class="line">@outer      <span class="comment"># 此处就是装饰器的声明，这种方法我们成为语法糖</span></span><br><span class="line">def func1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'hello world'</span>)</span><br></pre></td></tr></table></figure></p>
-<h2 id="7、高阶函数"><a href="#7、高阶函数" class="headerlink" title="7、高阶函数"></a>7、高阶函数</h2><h3 id="1）匿名函数"><a href="#1）匿名函数" class="headerlink" title="1）匿名函数"></a>1）匿名函数</h3><p>使用lambda关键字进行修饰，没有显式声明函数的名字。格式如下：<br>lambda 参数：表达式（返回值）<br>注意，在使用匿名函数时，因为其自身的情况限制，匿名函数并不能执行比较复杂的业务逻辑，即函数内的代码不能过多。lambda本身是一个表达式<br>注意：<br>1.lambda函数拥有自己的命名空间，且不能访问自有参数列表之外或全局命名空间里的参数。<br>2.lambda的主体是一个表达式，而不是一个代码块，只能在lambda表达式中封装有限的逻辑。<br>3.参数可以有多个，用逗号隔开<br>4.匿名函数不管逻辑多复杂，只能写一行，且逻辑执行结束后的内容就是返回值<br>5.返回值和正常的函数一样可以使任意数据类型</p>
-<h3 id="2）map函数（映射函数）"><a href="#2）map函数（映射函数）" class="headerlink" title="2）map函数（映射函数）"></a>2）map函数（映射函数）</h3><p>函数格式：map(func,iterable)<br>返回值：map 对象（迭代器）<br>说明：map函数主要作用是，将指定函数与序列中的元素进行映射，并完成函数中功能的批量操作，返回值为一个迭代器。我们可以使用for循环或next()函数进行遍历。通常情况下，如果映射的函数较为简单，我们就不单独声明函数，而是采用匿名函数来实现，这样也能提高运行效率。</p>
-<p>map函数接收两个参数，一个是函数f，一个是Iterator，map在Iterable的每个元素上依次执行函数f，并把结果作为新的Iterator迭代器返回。返回对象是map对象，需要使用for循环查看。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">定义方法f</span><br><span class="line">def f(x):</span><br><span class="line">    <span class="built_in">return</span> x * x</span><br><span class="line"> </span><br><span class="line">result = map(f,[1,2,3])   <span class="comment">#返回一个Iterator迭代器，可用for循环来访问</span></span><br><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> result:</span><br><span class="line">    <span class="built_in">print</span>(var)</span><br><span class="line">将上述代码写入文件map.py，利用命令python3 map.py执行，输出结果：</span><br><span class="line">1 </span><br><span class="line">4 </span><br><span class="line">9</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">map另外用法：</span><br><span class="line">ls=[1,2,3]</span><br><span class="line">x,y,z = map(str,ls)</span><br></pre></td></tr></table></figure>
-<p>总结：map函数可以对序列中个每个值进行某种批量转化操作，然后将结果作为迭代器Iterator返回，迭代器可以利用for循环或者next()函数来访问每个值。</p>
-<h3 id="3）reduce函数（归纳函数）"><a href="#3）reduce函数（归纳函数）" class="headerlink" title="3）reduce函数（归纳函数）"></a>3）reduce函数（归纳函数）</h3><p>函数格式：reduce(func,iterator)<br>返回值：返回函数计算结果，具体类型根据函数的返回值来定<br>说明：reduce函数中的func，一定要设为两个参数，用来接收迭代器返回的值。操作顺序为首先接收第一、第二个值，进行运算；运算结果再与第三个值进行运行，以此类推，直到迭代器迭代完全部数据。</p>
-<p>reduce函数接收两个参数，一个是函数f，一个是Iterator，其中函数f必须接收两个参数。<br>reduce在Iterator的第一二个元素上执行函数f得到结果res，然后将结果res继续与第三个元素作为函数f的两个参数执行函数f，直到遍历完成。<br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from functools import reduce</span><br><span class="line">          def f(x,y):</span><br><span class="line">                  <span class="built_in">return</span>  x * y</span><br><span class="line">           <span class="comment">#range(1,4)生成一个序列[1,2,3]</span></span><br><span class="line">       result = reduce(f,range(1,4))  <span class="comment">#返回一个值1*2*3</span></span><br><span class="line">       <span class="built_in">print</span>(result)</span><br><span class="line">输出结果：</span><br><span class="line">6  </span><br><span class="line">其详细计算过程为：</span><br><span class="line">1*2=2</span><br><span class="line">2*3=6</span><br></pre></td></tr></table></figure></p>
-<p>注意：使用reduce函数时，需要利用from functools import reduce语句引入functools模块的reduce函数，否则会执行出错。</p>
-<h3 id="4）filter函数（过滤函数）"><a href="#4）filter函数（过滤函数）" class="headerlink" title="4）filter函数（过滤函数）"></a>4）filter函数（过滤函数）</h3><p>函数格式：filter(func,iterable)<br>返回值：返回一个迭代器<br>说明：过滤函数与映射函数类似，都需要将函数作用于序列中的每个元素，根据函数判断True或False，返回相关元素。</p>
-<p>filter()也是Python常用的内置函数，用于过滤序列。<br>与map()类似，fiter()也是接收两个参数：一个函数和一个序列，将函数作用在序列的每一个元素上，根据函数返回值True或False，来决定是否舍弃该元素，最终返回一个迭代器，内容是原序列的子序列。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def is_even(x):</span><br><span class="line">    <span class="built_in">return</span> x % 2 == 0</span><br><span class="line">l = filter(is_even,[0,1,2,3,4,5])</span><br><span class="line"><span class="built_in">print</span>(l)</span><br><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> l:   <span class="comment">#for循环遍历迭代器l</span></span><br><span class="line">    <span class="built_in">print</span>(var)</span><br><span class="line">执行结果：</span><br><span class="line">&lt;filter object at 0x7f14037fcc50&gt;</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">4</span><br></pre></td></tr></table></figure></p>
-<p>注意：以上三个高阶函数经常和匿名函数一起使用！</p>
-<h2 id="8、递归"><a href="#8、递归" class="headerlink" title="8、递归"></a>8、递归</h2><p>递归概念：就是使用自身函数对自身进行调用，每调用一次将当前次的运行结果保存到函数的堆栈中，以副本形式保存，一直到最后完成全部调用。然后逐一向外将当期函数的结果返回并退出到其调用的位置。<br>递归一般用于求和，求阶乘<br>在Python中，通常推荐使用迭代，递归本身对内存的消耗和运行效率低下的问题较少使用。<br>递归求和：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def mysum(L):</span><br><span class="line">	print(L)</span><br><span class="line">	if not L</span><br><span class="line">		return 0</span><br><span class="line">	else:</span><br><span class="line">		return L[0] + mysum(L[1:])</span><br><span class="line">运行结果：</span><br><span class="line">&gt;&gt;&gt; mysum([1,2,3,4,5])</span><br><span class="line">[1,2,3,4,5]</span><br><span class="line">[2,3,4,5]</span><br><span class="line">[3,4,5]</span><br><span class="line">[4,5]</span><br><span class="line">[5]</span><br><span class="line">[]</span><br><span class="line">15</span><br></pre></td></tr></table></figure></p>
-<p>递归求阶乘：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">计算数n的阶乘。n的阶乘定义为n×(n –1)×(n –2)×…×1。</span><br><span class="line">def factorial(n):</span><br><span class="line">	<span class="keyword">if</span> n == 1:</span><br><span class="line">		<span class="built_in">return</span> 1</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="built_in">return</span> n * factorial(n-1)</span><br><span class="line">这就是定义的直接实现。只要记住函数调用factorial(n)是和调用factorial(n-1)不同的实体就行。</span><br></pre></td></tr></table></figure></p>
-<h2 id="9、二元查找"><a href="#9、二元查找" class="headerlink" title="9、二元查找"></a>9、二元查找</h2><p>这个递归例子的关键就是顺序，所以当找到中间元素的时候，只需要比较它和所查找的数字，如果要查找数字较大，那么该数字一定在右侧，反之在左侧。递归部分就是“继续查找数字所在的那半部分”，因为搜索的具体实现可能会和定义中完全相同。（注意搜索的算法返回的是数字应该在的位置—如果它本身不在序列中，那么所返回位置上的其实是其他数字。）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def search(sequence,number,lower,upper):</span><br><span class="line">	<span class="keyword">if</span> lower == upper:</span><br><span class="line">		assert number == sequence[upper]</span><br><span class="line">		<span class="built_in">return</span> upper</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		middle = (lower + upper)//2</span><br><span class="line">		<span class="keyword">if</span> number &gt; sequence[middle]:</span><br><span class="line">			<span class="built_in">return</span> search(sequence,</span><br><span class="line">					number,middle+1,upper)</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="built_in">return</span> search(sequence,</span><br><span class="line">					number,lower,middle)</span><br></pre></td></tr></table></figure></p>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/28/python13/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2018/07/28/python14/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          python基础:文件的输入输出
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/07/25/python12/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python基础:函数</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/08/02/python17/" class="archive-article-date">
+  	<time datetime="2018-08-02T11:11:55.644Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/08/02/python17/">python基础:包与模块</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/08/02/python16/" class="archive-article-date">
+  	<time datetime="2018-08-02T11:05:09.962Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/08/02/python16/">python基础:二进制文件、Excel表、xml文件的输入输出</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
+    
 
 
           </div>
@@ -355,8 +273,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

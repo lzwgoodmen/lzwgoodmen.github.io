@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>python基础:函数 | 小伟的技术博客</title>
+  <title>python基础:二进制文件、Excel表、xml文件的输入输出 | 小伟的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="6、闭包1）闭包格式12345678def outer():    print(&apos;我是外部函数&apos;)    def inner():        print(&apos;我是闭包函数&apos;)    return innerf = outer()f() 通过对例子的观察，我们发现闭包函数的写法有如下特点：1、闭包函数作为内部函数，嵌套在外部函数中2、闭包函数会作为外部函数的返回值，进行返回。返回闭包函数时，只返回">
+  <meta name="description" content="二进制文件的输入输出1）、struct和pickle使用struct模块，进行数据的输入输出使用步骤：第一，对要写入到文件中的各种类型数据，进行统一打包12struct.pack(&apos;if&apos;,10,12.4),其中，i:代表了整数，f：代表了浮点数？：代表布尔型 第二，使用write()写入，写入后以二进制的方式进行文件存储。第三，读取时，首先采用struct.unpack()来解包里面包含的相关数">
 <meta name="keywords" content="Python、爬虫、java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python基础:函数">
-<meta property="og:url" content="http://yoursite.com/2018/07/28/python13/index.html">
+<meta property="og:title" content="python基础:二进制文件、Excel表、xml文件的输入输出">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/python16/index.html">
 <meta property="og:site_name" content="小伟的技术博客">
-<meta property="og:description" content="6、闭包1）闭包格式12345678def outer():    print(&apos;我是外部函数&apos;)    def inner():        print(&apos;我是闭包函数&apos;)    return innerf = outer()f() 通过对例子的观察，我们发现闭包函数的写法有如下特点：1、闭包函数作为内部函数，嵌套在外部函数中2、闭包函数会作为外部函数的返回值，进行返回。返回闭包函数时，只返回">
+<meta property="og:description" content="二进制文件的输入输出1）、struct和pickle使用struct模块，进行数据的输入输出使用步骤：第一，对要写入到文件中的各种类型数据，进行统一打包12struct.pack(&apos;if&apos;,10,12.4),其中，i:代表了整数，f：代表了浮点数？：代表布尔型 第二，使用write()写入，写入后以二进制的方式进行文件存储。第三，读取时，首先采用struct.unpack()来解包里面包含的相关数">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-28T09:48:52.770Z">
+<meta property="og:updated_time" content="2018-08-02T11:13:47.846Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python基础:函数">
-<meta name="twitter:description" content="6、闭包1）闭包格式12345678def outer():    print(&apos;我是外部函数&apos;)    def inner():        print(&apos;我是闭包函数&apos;)    return innerf = outer()f() 通过对例子的观察，我们发现闭包函数的写法有如下特点：1、闭包函数作为内部函数，嵌套在外部函数中2、闭包函数会作为外部函数的返回值，进行返回。返回闭包函数时，只返回">
+<meta name="twitter:title" content="python基础:二进制文件、Excel表、xml文件的输入输出">
+<meta name="twitter:description" content="二进制文件的输入输出1）、struct和pickle使用struct模块，进行数据的输入输出使用步骤：第一，对要写入到文件中的各种类型数据，进行统一打包12struct.pack(&apos;if&apos;,10,12.4),其中，i:代表了整数，f：代表了浮点数？：代表布尔型 第二，使用write()写入，写入后以二进制的方式进行文件存储。第三，读取时，首先采用struct.unpack()来解包里面包含的相关数">
   
     <link rel="alternative" href="/atom.xml" title="小伟的技术博客" type="application/atom+xml">
   
@@ -155,43 +155,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-python13" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-python16" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      python基础:函数
+      python基础:二进制文件、Excel表、xml文件的输入输出
     </h1>
   
 
         
-        <a href="/2018/07/28/python13/" class="archive-article-date">
-  	<time datetime="2018-07-28T08:25:57.091Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-28</time>
+        <a href="/2018/08/02/python16/" class="archive-article-date">
+  	<time datetime="2018-08-02T11:05:09.962Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="6、闭包"><a href="#6、闭包" class="headerlink" title="6、闭包"></a>6、闭包</h2><h3 id="1）闭包格式"><a href="#1）闭包格式" class="headerlink" title="1）闭包格式"></a>1）闭包格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def outer():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'我是外部函数'</span>)</span><br><span class="line">    def inner():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'我是闭包函数'</span>)</span><br><span class="line">    <span class="built_in">return</span> inner</span><br><span class="line"></span><br><span class="line">f = outer()</span><br><span class="line">f()</span><br></pre></td></tr></table></figure>
-<p>通过对例子的观察，我们发现闭包函数的写法有如下特点：<br>1、闭包函数作为内部函数，嵌套在外部函数中<br>2、闭包函数会作为外部函数的返回值，进行返回。返回闭包函数时，只返回函数名，不带括号。<br>3、外部调用时，首先要执行外部函数，然后将结果赋值给一个变量，此时该变量对应了闭包函数。<br>4、我们可以通过<strong>closure</strong>内部函数可以观察到，闭包函数的存在。前提是，闭包函数要与外部函数进行数据传递或调用。<br>总结：闭包使用的数据，必须是本身定义或外部函数中定义的相关变量，通常需要调用外部函数的数据，形成一个封闭的函数结构。不能与外部数据（全局变量）发生交流。</p>
-<h3 id="2）闭包的应用—装饰器"><a href="#2）闭包的应用—装饰器" class="headerlink" title="2）闭包的应用—装饰器"></a>2）闭包的应用—装饰器</h3><p>1、概念：装饰器本身仍然是一个函数。是我们队闭包应用的一种具体实现。<br>2、作用：装饰器可以在不改变函数本身功能的情况下，为函数添加额外的功能。诸如：日志、测试、性能检测等。装饰器同样也是返回一个函数对象。<br>3、用法：<br>使用格式：@+装饰器名称<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def outer(f):</span><br><span class="line">    def inner(*var):</span><br><span class="line">        start_time = time.time()</span><br><span class="line">        f(*var)</span><br><span class="line">        time.sleep(0.3)</span><br><span class="line">        end_time = time.time()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'此函数执行时间为&#123;0&#125;'</span>.format(str(end_time-start_time)))</span><br><span class="line">    <span class="built_in">return</span> inner</span><br><span class="line"></span><br><span class="line">@outer      <span class="comment"># 此处就是装饰器的声明，这种方法我们成为语法糖</span></span><br><span class="line">def func1():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'hello world'</span>)</span><br></pre></td></tr></table></figure></p>
-<h2 id="7、高阶函数"><a href="#7、高阶函数" class="headerlink" title="7、高阶函数"></a>7、高阶函数</h2><h3 id="1）匿名函数"><a href="#1）匿名函数" class="headerlink" title="1）匿名函数"></a>1）匿名函数</h3><p>使用lambda关键字进行修饰，没有显式声明函数的名字。格式如下：<br>lambda 参数：表达式（返回值）<br>注意，在使用匿名函数时，因为其自身的情况限制，匿名函数并不能执行比较复杂的业务逻辑，即函数内的代码不能过多。lambda本身是一个表达式<br>注意：<br>1.lambda函数拥有自己的命名空间，且不能访问自有参数列表之外或全局命名空间里的参数。<br>2.lambda的主体是一个表达式，而不是一个代码块，只能在lambda表达式中封装有限的逻辑。<br>3.参数可以有多个，用逗号隔开<br>4.匿名函数不管逻辑多复杂，只能写一行，且逻辑执行结束后的内容就是返回值<br>5.返回值和正常的函数一样可以使任意数据类型</p>
-<h3 id="2）map函数（映射函数）"><a href="#2）map函数（映射函数）" class="headerlink" title="2）map函数（映射函数）"></a>2）map函数（映射函数）</h3><p>函数格式：map(func,iterable)<br>返回值：map 对象（迭代器）<br>说明：map函数主要作用是，将指定函数与序列中的元素进行映射，并完成函数中功能的批量操作，返回值为一个迭代器。我们可以使用for循环或next()函数进行遍历。通常情况下，如果映射的函数较为简单，我们就不单独声明函数，而是采用匿名函数来实现，这样也能提高运行效率。</p>
-<p>map函数接收两个参数，一个是函数f，一个是Iterator，map在Iterable的每个元素上依次执行函数f，并把结果作为新的Iterator迭代器返回。返回对象是map对象，需要使用for循环查看。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">定义方法f</span><br><span class="line">def f(x):</span><br><span class="line">    <span class="built_in">return</span> x * x</span><br><span class="line"> </span><br><span class="line">result = map(f,[1,2,3])   <span class="comment">#返回一个Iterator迭代器，可用for循环来访问</span></span><br><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> result:</span><br><span class="line">    <span class="built_in">print</span>(var)</span><br><span class="line">将上述代码写入文件map.py，利用命令python3 map.py执行，输出结果：</span><br><span class="line">1 </span><br><span class="line">4 </span><br><span class="line">9</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">map另外用法：</span><br><span class="line">ls=[1,2,3]</span><br><span class="line">x,y,z = map(str,ls)</span><br></pre></td></tr></table></figure>
-<p>总结：map函数可以对序列中个每个值进行某种批量转化操作，然后将结果作为迭代器Iterator返回，迭代器可以利用for循环或者next()函数来访问每个值。</p>
-<h3 id="3）reduce函数（归纳函数）"><a href="#3）reduce函数（归纳函数）" class="headerlink" title="3）reduce函数（归纳函数）"></a>3）reduce函数（归纳函数）</h3><p>函数格式：reduce(func,iterator)<br>返回值：返回函数计算结果，具体类型根据函数的返回值来定<br>说明：reduce函数中的func，一定要设为两个参数，用来接收迭代器返回的值。操作顺序为首先接收第一、第二个值，进行运算；运算结果再与第三个值进行运行，以此类推，直到迭代器迭代完全部数据。</p>
-<p>reduce函数接收两个参数，一个是函数f，一个是Iterator，其中函数f必须接收两个参数。<br>reduce在Iterator的第一二个元素上执行函数f得到结果res，然后将结果res继续与第三个元素作为函数f的两个参数执行函数f，直到遍历完成。<br>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from functools import reduce</span><br><span class="line">          def f(x,y):</span><br><span class="line">                  <span class="built_in">return</span>  x * y</span><br><span class="line">           <span class="comment">#range(1,4)生成一个序列[1,2,3]</span></span><br><span class="line">       result = reduce(f,range(1,4))  <span class="comment">#返回一个值1*2*3</span></span><br><span class="line">       <span class="built_in">print</span>(result)</span><br><span class="line">输出结果：</span><br><span class="line">6  </span><br><span class="line">其详细计算过程为：</span><br><span class="line">1*2=2</span><br><span class="line">2*3=6</span><br></pre></td></tr></table></figure></p>
-<p>注意：使用reduce函数时，需要利用from functools import reduce语句引入functools模块的reduce函数，否则会执行出错。</p>
-<h3 id="4）filter函数（过滤函数）"><a href="#4）filter函数（过滤函数）" class="headerlink" title="4）filter函数（过滤函数）"></a>4）filter函数（过滤函数）</h3><p>函数格式：filter(func,iterable)<br>返回值：返回一个迭代器<br>说明：过滤函数与映射函数类似，都需要将函数作用于序列中的每个元素，根据函数判断True或False，返回相关元素。</p>
-<p>filter()也是Python常用的内置函数，用于过滤序列。<br>与map()类似，fiter()也是接收两个参数：一个函数和一个序列，将函数作用在序列的每一个元素上，根据函数返回值True或False，来决定是否舍弃该元素，最终返回一个迭代器，内容是原序列的子序列。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def is_even(x):</span><br><span class="line">    <span class="built_in">return</span> x % 2 == 0</span><br><span class="line">l = filter(is_even,[0,1,2,3,4,5])</span><br><span class="line"><span class="built_in">print</span>(l)</span><br><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> l:   <span class="comment">#for循环遍历迭代器l</span></span><br><span class="line">    <span class="built_in">print</span>(var)</span><br><span class="line">执行结果：</span><br><span class="line">&lt;filter object at 0x7f14037fcc50&gt;</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">4</span><br></pre></td></tr></table></figure></p>
-<p>注意：以上三个高阶函数经常和匿名函数一起使用！</p>
-<h2 id="8、递归"><a href="#8、递归" class="headerlink" title="8、递归"></a>8、递归</h2><p>递归概念：就是使用自身函数对自身进行调用，每调用一次将当前次的运行结果保存到函数的堆栈中，以副本形式保存，一直到最后完成全部调用。然后逐一向外将当期函数的结果返回并退出到其调用的位置。<br>递归一般用于求和，求阶乘<br>在Python中，通常推荐使用迭代，递归本身对内存的消耗和运行效率低下的问题较少使用。<br>递归求和：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; def mysum(L):</span><br><span class="line">	print(L)</span><br><span class="line">	if not L</span><br><span class="line">		return 0</span><br><span class="line">	else:</span><br><span class="line">		return L[0] + mysum(L[1:])</span><br><span class="line">运行结果：</span><br><span class="line">&gt;&gt;&gt; mysum([1,2,3,4,5])</span><br><span class="line">[1,2,3,4,5]</span><br><span class="line">[2,3,4,5]</span><br><span class="line">[3,4,5]</span><br><span class="line">[4,5]</span><br><span class="line">[5]</span><br><span class="line">[]</span><br><span class="line">15</span><br></pre></td></tr></table></figure></p>
-<p>递归求阶乘：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">计算数n的阶乘。n的阶乘定义为n×(n –1)×(n –2)×…×1。</span><br><span class="line">def factorial(n):</span><br><span class="line">	<span class="keyword">if</span> n == 1:</span><br><span class="line">		<span class="built_in">return</span> 1</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="built_in">return</span> n * factorial(n-1)</span><br><span class="line">这就是定义的直接实现。只要记住函数调用factorial(n)是和调用factorial(n-1)不同的实体就行。</span><br></pre></td></tr></table></figure></p>
-<h2 id="9、二元查找"><a href="#9、二元查找" class="headerlink" title="9、二元查找"></a>9、二元查找</h2><p>这个递归例子的关键就是顺序，所以当找到中间元素的时候，只需要比较它和所查找的数字，如果要查找数字较大，那么该数字一定在右侧，反之在左侧。递归部分就是“继续查找数字所在的那半部分”，因为搜索的具体实现可能会和定义中完全相同。（注意搜索的算法返回的是数字应该在的位置—如果它本身不在序列中，那么所返回位置上的其实是其他数字。）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def search(sequence,number,lower,upper):</span><br><span class="line">	<span class="keyword">if</span> lower == upper:</span><br><span class="line">		assert number == sequence[upper]</span><br><span class="line">		<span class="built_in">return</span> upper</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		middle = (lower + upper)//2</span><br><span class="line">		<span class="keyword">if</span> number &gt; sequence[middle]:</span><br><span class="line">			<span class="built_in">return</span> search(sequence,</span><br><span class="line">					number,middle+1,upper)</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="built_in">return</span> search(sequence,</span><br><span class="line">					number,lower,middle)</span><br></pre></td></tr></table></figure></p>
+        <h2 id="二进制文件的输入输出"><a href="#二进制文件的输入输出" class="headerlink" title="二进制文件的输入输出"></a>二进制文件的输入输出</h2><h3 id="1）、struct和pickle"><a href="#1）、struct和pickle" class="headerlink" title="1）、struct和pickle"></a>1）、struct和pickle</h3><p>使用struct模块，进行数据的输入输出<br>使用步骤：<br>第一，对要写入到文件中的各种类型数据，进行统一打包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">struct.pack(<span class="string">'if'</span>,10,12.4),其中，i:代表了整数，f：代表了浮点数</span><br><span class="line">？：代表布尔型</span><br></pre></td></tr></table></figure></p>
+<p>第二，使用write()写入，写入后以二进制的方式进行文件存储。<br>第三，读取时，首先采用struct.unpack()来解包里面包含的相关数据，返回一个序列，即写入时的顺序，与读取时的顺序应该一致。<br>注意：需要将所有写入的数据，一次性都封装到一个bytes中，因为在Python中没有byte的概念，所以需要第三方的模块进行封装。<br>使用pickel模块，进行数据的输入输出<br>使用步骤：<br>第一，对要写入文件中的数据，进行逐一的写入。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'myfile.dat'</span>,<span class="string">'wb'</span>)</span><br><span class="line">pickle.dump(10, f)</span><br></pre></td></tr></table></figure></p>
+<p>第二，读取数据时，同理，需要逐一的读取。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pickle.load(f)</span><br></pre></td></tr></table></figure></p>
+<p>注意，在使用时，我们能够观察到该模块的dump和load函数，与前面所学的json模块的函数一致，在Python中json与pickle都能够实现序列化和反序列化的两个模块。<br>在实际的使用中，推荐使用pickle 模块。</p>
+<h3 id="2）文件定位"><a href="#2）文件定位" class="headerlink" title="2）文件定位"></a>2）文件定位</h3><p>函数格式：seek(n)<br>返回值：返回指定的位置<br>说明：通过指定元素的位置，将文件指针移动到该位置。<br>seek()函数有三个固定值，分别为：0,1,2<br>0：文件的开头<br>1：文件当前的位置<br>2：文件的结尾位置<br>seek(0,2):代表着将指针定位到文件尾，然后进行添加操作<br>seek(0,1):代表着在当前指针的位置，进行替换</p>
+<p>补充：对文件的读取时，如果文件大小未知，切忌不要使用read(),readline()，readlines()将文件内容一次性读取到内存中。因为有可能文件内容过多，造成读取时的IO阻塞。建议，将文件分多次分批读入内存中。我们通常可以先获取到文件大小，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">size = path.getsize(<span class="string">'myfile.txt'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>根据其大小来判断我们采用何种方式进行读取数据内容。</p>
+<h2 id="Python对Excel文件的操作"><a href="#Python对Excel文件的操作" class="headerlink" title="Python对Excel文件的操作"></a>Python对Excel文件的操作</h2><h3 id="1、需要三个主要的模块"><a href="#1、需要三个主要的模块" class="headerlink" title="1、需要三个主要的模块"></a>1、需要三个主要的模块</h3><p>xlrd:用来读取Excel文件中的内容<br>xlwt：用来生成Excel文件<br>xlutils：用来实现Excel文件的复制</p>
+<h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><p>首先：xlrd<br>open_workbook()<br>函数格式：open_workbook(文件名)<br>返回值：返回Excel对象<br>说明：打开指定的Excel文件，生成一个Excel对象用来实现读取行、列及单元格内容</p>
+<p>函数格式：sheet_by_name(sheet页面名)/sheet_by_index(sheet页索引位，默认从0开始)<br>返回值：sheet页对象<br>说明：找到指定的sheet页，生成一个对应的sheet页对象，对其内部的数据进行检索</p>
+<p>函数格式：sheet.cell(rownum,colnum)<br>返回值：返回指定行列的单元格对象，如果要获取其中的内容，调用value属性。<br>说明：通过指定行、列，能够确认一个单元格。<br>其次：xlwt<br>函数名称：Workbook()<br>返回值：返回一个新创建的Excel空对象<br>说明：该函数用来生成一个Excel对象，但是该对象没有任何内容</p>
+<p>函数名称：add_sheet(sheet名字)<br>返回值：返回一个新创建的sheet页对象<br>说明：该函数用来新增一个空的sheet页对象</p>
+<p>函数名称：write(row, col, value)<br>返回值：无<br>说明：对指定的行列单元格内，写入value内容。</p>
+<p>最后：xlutils<br>函数格式：copy(Excel对象)<br>返回值：返回一个指定对象的副本<br>说明：在Python中对Excel的修改，都是生成一个对应的副本，修改后保存。</p>
+<p>函数格式：get_sheet(索引位)<br>返回值：返回一个指定对象副本中的sheet页<br>说明：我们实际修改的数据，都是位于sheet页中。因此要获取到指定的sheet页。</p>
+<h2 id="Python对XML文件的解析"><a href="#Python对XML文件的解析" class="headerlink" title="Python对XML文件的解析"></a>Python对XML文件的解析</h2><h3 id="1、XML解析的两种方式：DOM与SAX"><a href="#1、XML解析的两种方式：DOM与SAX" class="headerlink" title="1、XML解析的两种方式：DOM与SAX"></a>1、XML解析的两种方式：DOM与SAX</h3><p>DOM：文档对象模型，是Python处理XML文件的标准模式。一个DOM的解析器在解析XML文档时 ，一次性读入整个文档，把文档中的所有元素（标签和文本）保存在内存中的一个树形结构，然后我们可以利用DOM提供的各种函数，来读取或修改文档中的内容。<br>SAX：是一种时间驱动的API，利用SAX解析XML 。主要使用解析器负责读取XML文档，并向事件处理器发生事件，比如：元素开始、元素结束。常用在1）大型文档的处理，2）只需要文件的部分内容，或者从文件中得到特定的部分3）建立自己的对象模型。<br>dom与sax对比：<br>1、DOM解析需要读取整个文档到内存中，并且将所有元素保存到树形结构。那也就意味着，可以根据树形结构导航到任意节点，获取其相关内容。<br>2、SAX解析文档，将文档边读入，边解析的方式，不需要一次性读入全部文档内容，只需要读入一部分即可。同时，因为其边读入边解析的工作方式，能够适应大文件的解析，提高解析效率。</p>
+<h3 id="SAX解析文件步骤："><a href="#SAX解析文件步骤：" class="headerlink" title="SAX解析文件步骤："></a>SAX解析文件步骤：</h3><p>1、创建解析器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parser = sax.make_parser()</span><br></pre></td></tr></table></figure></p>
+<p>2、读取xml文档<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xml.sax.parse(xmlfile)</span><br></pre></td></tr></table></figure></p>
+<p>3、设置ContentHandler对象，重写startDocument、endDocument、startElement、endElement方法</p>
+<p>startDocument():文档载入时调用，文档开始<br>endDocument()：当解析器达到文档结尾时调用</p>
+<p>startElement(name,attrs):当遇到XML标签时调用，name是标签的名字，attrs标签的属性字典<br>endElement(name):当遇到XML标签结束时调用，name是标签名<br>4、使用SAX解析文件，需要为解析器配置ContentHandler，定义了如何解析标签，以及处理标签间文本内容的业务逻辑。<br>carhandler = CarHandler()<br>parser.setContentHandler(carhandler)</p>
 
       
 
@@ -271,7 +275,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/28/python13/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/02/python16/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,18 +289,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/07/28/python14/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/08/02/python17/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          python基础:文件的输入输出
+          python基础:包与模块
         
       </div>
     </a>
   
   
-    <a href="/2018/07/25/python12/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python基础:函数</div>
+    <a href="/2018/07/28/python15/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python基础:文件操作综合练</div>
       <i class="icon-circle-right"></i>
     </a>
   
