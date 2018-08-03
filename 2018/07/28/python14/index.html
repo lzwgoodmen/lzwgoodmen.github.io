@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="小伟的技术博客">
 <meta property="og:description" content="文件输入输出（IO）1）格式化函数repr()函数格式：repr(Object)返回值：返回一个字符串类型的数据说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。例如：12repr(&apos;hello world&apos;)&quot;&apos;hello world&apos;&quot; 居左、居右、居中函数rjust()/ljust()/center()函数格式：r">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-02T11:07:19.576Z">
+<meta property="og:updated_time" content="2018-08-03T13:29:31.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python基础:文件的输入输出">
 <meta name="twitter:description" content="文件输入输出（IO）1）格式化函数repr()函数格式：repr(Object)返回值：返回一个字符串类型的数据说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。例如：12repr(&apos;hello world&apos;)&quot;&apos;hello world&apos;&quot; 居左、居右、居中函数rjust()/ljust()/center()函数格式：r">
@@ -186,8 +186,13 @@
 <p>函数格式：readline()<br>返回值：返回读取的一行字符串<br>说明：该函数一次能够读取文件中一行内容，如果需要读取全部内容，需要配合while循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。</p>
 <p>函数格式：readlines()<br>返回值：返回一个包含多个字符串的列表。<br>说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。</p>
 <h3 id="3-关闭文件"><a href="#3-关闭文件" class="headerlink" title="3)关闭文件"></a>3)关闭文件</h3><p>函数格式：close()<br>返回值：无<br>说明：当我们操作文件时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close()函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。</p>
+<p>函数格式：flush()<br>返回值：无<br>说明：将文件缓冲器的数据写入磁盘（文件）并刷新，与close（）不同的是flush（）不关闭函数。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'myfile.txt'</span>,<span class="string">'w'</span>,encoding = <span class="string">'UTF-8'</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(10000):</span><br><span class="line">    f.write(<span class="string">'hello world!'</span>+str(i))</span><br><span class="line">    <span class="keyword">if</span> i%100 == 0:</span><br><span class="line">        f.flush()</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure></p>
 <h3 id="4-json格式处理"><a href="#4-json格式处理" class="headerlink" title="4)json格式处理"></a>4)json格式处理</h3><p>在Python中，提供了json模块可以实现对特殊数据结构的读写。比如：列表和字典。<br>1）将嵌套列表或字典转为json格式数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line">item = json.dumps(list/dict)</span><br><span class="line">file.writelines(item)</span><br><span class="line"></span><br><span class="line">json.dump(list, file)</span><br></pre></td></tr></table></figure></p>
 <p>2)将文件中的列表或字典json字符串读取出来<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f= open(file,mode)</span><br><span class="line">json.load(f)</span><br></pre></td></tr></table></figure></p>
+<p>序列化：将字典，列表等内容转换成一个字符串的过程叫做序列化。<br>序列化的目的<br>1 以某种存储形式使自定义对象持久化<br>2 将对象从一个地方传递到另一个地方<br>3 使程序更具维护性</p>
+<p>序列化的使用场景：<br>1 能存储在文件中的一定是字符串 或者是 字节<br>2 能在网络上传输的 只有字节<br>json    所有的编程语言都通用的序列化格式，它支持的数据类型非常有限：数字，字符串，列表，字典</p>
+<p>json模块提供了四个功能:dumps,dump,loads,load<br>dumps和loads对多行数据进行转码写入，转码读出<br>dump和load对单行数据进行转码写入，转码读出</p>
+<p>总结：<br>dumps序列化 loads反序列化，只在内存中操作数据。主要用于网络传输 和多个数据与文件打交道。<br>dump序列化  load反序列化 ，主要用于一个数据直接存在文件里–直接和文件打交道。<br>json不支持元组，不支持除了str数据类型之外的key。<br>json在写入多次dump的时候，不能对应执行多次load来取出数据，pickle可以。<br>json如果要写入多个元素，可以先将元素dumps序列化， f.write(序列化+‘\n’)写入文件，读出元素的时候，应该先按行读文件，在使用loads将读出来的字符串转换成对应的数据类型。</p>
 <h3 id="5、文件及路径操作函数"><a href="#5、文件及路径操作函数" class="headerlink" title="5、文件及路径操作函数"></a>5、文件及路径操作函数</h3><p>1）isfile()与isdir() （os.path模块）<br>函数格式：os.path.isfile(file)<br>返回值：bool<br>说明：根据传入的参数，判断该内容是否为文件类型。如果是文件类型返回True，如果不是返回False<br>isdir()<br>函数格式：os.path.isdir(path)<br>返回值：bool<br>说明：根据传入的参数，判断内容是否为目录类型，如果是目录就返回True，如果不是返回False</p>
 <p>2）创建路径 mkdir()、删除路径removedirs() (os模块)<br>函数格式：os.mkdir(path)<br>返回值：无<br>说明：如果指定路径中不存在该目录，那么创建该目录。注意，如果存在同名目录，则报错</p>
 <p>函数格式：os.removedirs(path)，os.rmdir(path)<br>返回值：无<br>说明：删除指定的目录，如果该目录中存在文件或子目录，都不允许删除。否则报错。</p>

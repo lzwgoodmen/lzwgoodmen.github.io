@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="小伟的技术博客">
 <meta property="og:description" content="二进制文件的输入输出1）、struct和pickle使用struct模块，进行数据的输入输出使用步骤：第一，对要写入到文件中的各种类型数据，进行统一打包12struct.pack(&apos;if&apos;,10,12.4),其中，i:代表了整数，f：代表了浮点数？：代表布尔型 第二，使用write()写入，写入后以二进制的方式进行文件存储。第三，读取时，首先采用struct.unpack()来解包里面包含的相关数">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-02T11:13:47.846Z">
+<meta property="og:updated_time" content="2018-08-03T13:27:09.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python基础:二进制文件、Excel表、xml文件的输入输出">
 <meta name="twitter:description" content="二进制文件的输入输出1）、struct和pickle使用struct模块，进行数据的输入输出使用步骤：第一，对要写入到文件中的各种类型数据，进行统一打包12struct.pack(&apos;if&apos;,10,12.4),其中，i:代表了整数，f：代表了浮点数？：代表布尔型 第二，使用write()写入，写入后以二进制的方式进行文件存储。第三，读取时，首先采用struct.unpack()来解包里面包含的相关数">
@@ -179,6 +179,8 @@
 <p>第二，使用write()写入，写入后以二进制的方式进行文件存储。<br>第三，读取时，首先采用struct.unpack()来解包里面包含的相关数据，返回一个序列，即写入时的顺序，与读取时的顺序应该一致。<br>注意：需要将所有写入的数据，一次性都封装到一个bytes中，因为在Python中没有byte的概念，所以需要第三方的模块进行封装。<br>使用pickel模块，进行数据的输入输出<br>使用步骤：<br>第一，对要写入文件中的数据，进行逐一的写入。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'myfile.dat'</span>,<span class="string">'wb'</span>)</span><br><span class="line">pickle.dump(10, f)</span><br></pre></td></tr></table></figure></p>
 <p>第二，读取数据时，同理，需要逐一的读取。例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pickle.load(f)</span><br></pre></td></tr></table></figure></p>
 <p>注意，在使用时，我们能够观察到该模块的dump和load函数，与前面所学的json模块的函数一致，在Python中json与pickle都能够实现序列化和反序列化的两个模块。<br>在实际的使用中，推荐使用pickle 模块。</p>
+<p>pickle，用于python特有的类型和python的数据类型间进行转换(只能用于python程序之间的交互)<br>pickle模块提供了四个功能:dumps,dump(序列化，存)，loads(反序列化,读)，load(不仅可以序列化字典，列表…可以把python中任意的数据类型序列化)</p>
+<p>pickle  只能在python语言的程序之间传递数据用的，pickle支持python中所有的数据类型</p>
 <h3 id="2）文件定位"><a href="#2）文件定位" class="headerlink" title="2）文件定位"></a>2）文件定位</h3><p>函数格式：seek(n)<br>返回值：返回指定的位置<br>说明：通过指定元素的位置，将文件指针移动到该位置。<br>seek()函数有三个固定值，分别为：0,1,2<br>0：文件的开头<br>1：文件当前的位置<br>2：文件的结尾位置<br>seek(0,2):代表着将指针定位到文件尾，然后进行添加操作<br>seek(0,1):代表着在当前指针的位置，进行替换</p>
 <p>补充：对文件的读取时，如果文件大小未知，切忌不要使用read(),readline()，readlines()将文件内容一次性读取到内存中。因为有可能文件内容过多，造成读取时的IO阻塞。建议，将文件分多次分批读入内存中。我们通常可以先获取到文件大小，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">size = path.getsize(<span class="string">'myfile.txt'</span>)</span><br></pre></td></tr></table></figure></p>
 <p>根据其大小来判断我们采用何种方式进行读取数据内容。</p>
